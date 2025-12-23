@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="welcome-state" class="text-center">
+    <h2 class="text-xl font-semibold mb-4">Welcome to Voice Email System</h2>
+    <p class="text-gray-600 mb-4">Please say your username to begin.</p>
+    <div class="animate-pulse">
+        <div class="w-4 h-4 bg-blue-500 rounded-full mx-auto"></div>
+    </div>
+</div>
+
+<div id="auth-state" class="hidden">
+    <h2 class="text-xl font-semibold mb-4">Voice Authentication</h2>
+    <p class="text-gray-600 mb-4">Please verify your voice by saying the phrase shown below.</p>
+    <div id="auth-phrase" class="mt-4 p-4 bg-gray-100 rounded-lg text-center font-mono text-lg"></div>
+    <div class="mt-4 text-sm text-gray-500">Speak clearly and maintain a consistent distance from your microphone.</div>
+</div>
+
+<div id="enroll-state" class="hidden">
+    <h2 class="text-xl font-semibold mb-4">Voice Enrollment</h2>
+    <p class="text-gray-600 mb-4">Let's create your voice profile. Please say the phrases when prompted.</p>
+    <div id="enroll-progress" class="mt-4">
+        <div class="flex justify-between mb-2">
+            <span>Progress:</span>
+            <span id="enroll-count">0/5</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+            <div id="enroll-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+    </div>
+    <div class="mt-4 text-sm text-gray-500">Speak clearly and maintain a consistent distance from your microphone.</div>
+</div>
+
+<div id="main-menu-state" class="hidden">
+    <h2 class="text-xl font-semibold mb-4">Main Menu</h2>
+    <div class="grid grid-cols-2 gap-4">
+        <button class="p-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200" onclick="handleCommand('compose')">
+            <div class="flex items-center justify-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                Compose Email
+            </div>
+        </button>
+        <button class="p-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-200" onclick="handleCommand('search')">
+            <div class="flex items-center justify-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                Search Emails
+            </div>
+        </button>
+        <button class="p-4 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors duration-200" onclick="handleCommand('recent')">
+            <div class="flex items-center justify-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Recent Emails
+            </div>
+        </button>
+        <button class="p-4 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors duration-200" onclick="handleCommand('exit')">
+            <div class="flex items-center justify-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                </svg>
+                Exit
+            </div>
+        </button>
+    </div>
+</div>
+
+<div id="compose-state" class="hidden">
+    <h2 class="text-xl font-semibold mb-4">Compose Email</h2>
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium text-gray-700">To:</label>
+            <input type="email" id="to-email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" readonly>
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Subject:</label>
+            <input type="text" id="email-subject" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" readonly>
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Message:</label>
+            <textarea id="email-body" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" rows="4" readonly></textarea>
+        </div>
+        <div class="flex space-x-4">
+            <button class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-200" onclick="handleCommand('confirm')">
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Send Email
+                </div>
+            </button>
+            <button class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors duration-200" onclick="handleCommand('cancel')">
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                    Cancel
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="search-state" class="hidden">
+    <h2 class="text-xl font-semibold mb-4">Search Emails</h2>
+    <div id="search-results" class="space-y-4">
+        <!-- Search results will be populated here -->
+    </div>
+</div>
+
+<div id="recent-state" class="hidden">
+    <h2 class="text-xl font-semibold mb-4">Recent Emails</h2>
+    <div id="recent-email" class="space-y-4">
+        <!-- Recent email will be populated here -->
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function showState(state) {
+        // Hide all states
+        document.querySelectorAll('[id$="-state"]').forEach(el => {
+            el.classList.add('hidden');
+        });
+        
+        // Show requested state
+        document.getElementById(`${state}-state`).classList.remove('hidden');
+    }
+    
+    function handleStateChange(data) {
+        const state = data.state;
+        showState(state);
+        
+        if (state === 'auth') {
+            document.getElementById('auth-phrase').textContent = 'Please say: "Hello this is my voice"';
+        } else if (state === 'enroll') {
+            document.getElementById('enroll-count').textContent = '0/5';
+            document.getElementById('enroll-bar').style.width = '0%';
+        } else if (state === 'main_menu') {
+            // Reset any previous state
+            document.getElementById('to-email').value = '';
+            document.getElementById('email-subject').value = '';
+            document.getElementById('email-body').value = '';
+            document.getElementById('search-results').innerHTML = '';
+            document.getElementById('recent-email').innerHTML = '';
+        }
+    }
+    
+    function handleCommand(command) {
+        socket.emit('voice_command', { command });
+    }
+    
+    // Initial state
+    showState('welcome');
+    
+    // Handle email details
+    socket.on('email_details', (data) => {
+        document.getElementById('to-email').value = data.to;
+        document.getElementById('email-subject').value = data.subject;
+        document.getElementById('email-body').value = data.body;
+    });
+    
+    // Handle search results
+    socket.on('search_results', (data) => {
+        const resultsDiv = document.getElementById('search-results');
+        resultsDiv.innerHTML = '';
+        
+        data.emails.forEach((email, index) => {
+            const emailDiv = document.createElement('div');
+            emailDiv.className = 'p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200';
+            emailDiv.innerHTML = `
+                <div class="font-semibold text-gray-800">From: ${email.from}</div>
+                <div class="text-gray-600">Subject: ${email.subject}</div>
+                <div class="mt-2 text-gray-700">${email.body}</div>
+                <div class="text-sm text-gray-500 mt-2">Relevance: ${Math.round(email.similarity * 100)}%</div>
+            `;
+            resultsDiv.appendChild(emailDiv);
+        });
+    });
+    
+    // Handle recent email
+    socket.on('recent_email', (data) => {
+        const emailDiv = document.getElementById('recent-email');
+        const email = data.email;
+        
+        emailDiv.innerHTML = `
+            <div class="p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200">
+                <div class="font-semibold text-gray-800">From: ${email.from}</div>
+                <div class="text-gray-600">Subject: ${email.subject}</div>
+                <div class="mt-2 text-gray-700">${email.body}</div>
+            </div>
+        `;
+    });
+    
+    // Handle enrollment progress
+    socket.on('enroll_progress', (data) => {
+        const count = data.current;
+        const total = data.total;
+        document.getElementById('enroll-count').textContent = `${count}/${total}`;
+        document.getElementById('enroll-bar').style.width = `${(count/total) * 100}%`;
+    });
+</script>
+{% endblock %} 

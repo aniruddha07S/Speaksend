@@ -1,0 +1,595 @@
+2025-05-09 00:43:48,232 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-09 02:28:17,273 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-09 02:40:52,246 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-09 03:16:11,169 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-09 03:20:27,651 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-09 03:21:51,412 - INFO - Use pytorch device: cpu
+2025-05-09 03:21:51,415 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-09 03:22:12,237 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-09 03:23:44,059 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-09 03:23:44,680 - INFO - Use pytorch device: cpu
+2025-05-09 03:23:44,681 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-09 03:32:26,816 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-09 03:32:27,394 - INFO - Use pytorch device: cpu
+2025-05-09 03:32:27,670 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-09 15:21:05,320 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-09 15:21:05,929 - INFO - Use pytorch device: cpu
+2025-05-09 15:21:06,276 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-09 15:46:35,433 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-05-09 15:46:35,433 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-05-09 15:46:35,433 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 15:46:35,433 - DEBUG - Registered checkpoint load hook for load
+2025-05-09 15:46:35,499 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-05-09 15:46:35,499 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-05-09 15:46:35,500 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 15:46:35,500 - DEBUG - Registered checkpoint load hook for _recover
+2025-05-09 15:46:35,512 - INFO - Fetch hyperparams.yaml: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 15:46:36,091 - DEBUG - Fetch: Local file found, creating symlink '/Users/tanishndhangar/.cache/huggingface/hub/models--speechbrain--spkrec-ecapa-voxceleb/snapshots/0f99f2d0ebe89ac095bcc5903c4dd8f72b367286/hyperparams.yaml' -> '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-05-09 15:46:36,092 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 15:46:36,358 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 15:46:36,359 - DEBUG - Registered checkpoint load hook for _load
+2025-05-09 15:46:36,359 - DEBUG - Registered parameter transfer hook for _load
+2025-05-09 15:46:36,435 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 15:46:36,435 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-05-09 15:46:36,436 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-05-09 15:46:36,436 - INFO - Fetch embedding_model.ckpt: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 15:46:45,183 - DEBUG - Fetch: Local file found, creating symlink '/Users/tanishndhangar/.cache/huggingface/hub/models--speechbrain--spkrec-ecapa-voxceleb/snapshots/0f99f2d0ebe89ac095bcc5903c4dd8f72b367286/embedding_model.ckpt' -> '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-05-09 15:46:45,184 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 15:46:45,184 - INFO - Fetch mean_var_norm_emb.ckpt: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 15:46:45,649 - DEBUG - Fetch: Local file found, creating symlink '/Users/tanishndhangar/.cache/huggingface/hub/models--speechbrain--spkrec-ecapa-voxceleb/snapshots/0f99f2d0ebe89ac095bcc5903c4dd8f72b367286/mean_var_norm_emb.ckpt' -> '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-05-09 15:46:45,650 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 15:46:45,650 - INFO - Fetch classifier.ckpt: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 15:46:46,896 - DEBUG - Fetch: Local file found, creating symlink '/Users/tanishndhangar/.cache/huggingface/hub/models--speechbrain--spkrec-ecapa-voxceleb/snapshots/0f99f2d0ebe89ac095bcc5903c4dd8f72b367286/classifier.ckpt' -> '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-05-09 15:46:46,897 - DEBUG - Set local path in self.paths["classifier"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 15:46:46,897 - INFO - Fetch label_encoder.txt: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 15:46:47,540 - DEBUG - Fetch: Local file found, creating symlink '/Users/tanishndhangar/.cache/huggingface/hub/models--speechbrain--spkrec-ecapa-voxceleb/snapshots/0f99f2d0ebe89ac095bcc5903c4dd8f72b367286/label_encoder.txt' -> '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-05-09 15:46:47,540 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:46:47,540 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-05-09 15:46:47,540 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 15:46:47,541 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 15:46:47,541 - DEBUG - Redirecting (loading from local path): classifier -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 15:46:47,541 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:46:47,604 - DEBUG - Loaded categorical encoding from /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:46:53,759 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-05-09 15:46:53,760 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 15:46:54,086 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-05-09 15:46:54,086 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-05-09 15:46:54,086 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 15:46:54,086 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-05-09 15:46:54,086 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 15:46:54,086 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-05-09 15:46:54,086 - DEBUG - Set local path in self.paths["classifier"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 15:46:54,087 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-05-09 15:46:54,087 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:46:54,087 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-05-09 15:46:54,087 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 15:46:54,087 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 15:46:54,087 - DEBUG - Redirecting (loading from local path): classifier -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 15:46:54,087 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:46:54,142 - DEBUG - Loaded categorical encoding from /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:48:04,824 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-05-09 15:48:47,219 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-05-09 15:48:47,219 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-05-09 15:48:47,219 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 15:48:47,219 - DEBUG - Registered checkpoint load hook for load
+2025-05-09 15:48:47,277 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-05-09 15:48:47,277 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-05-09 15:48:47,277 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 15:48:47,277 - DEBUG - Registered checkpoint load hook for _recover
+2025-05-09 15:48:47,290 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-05-09 15:48:47,290 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 15:48:47,596 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 15:48:47,596 - DEBUG - Registered checkpoint load hook for _load
+2025-05-09 15:48:47,596 - DEBUG - Registered parameter transfer hook for _load
+2025-05-09 15:48:47,662 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 15:48:47,662 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-05-09 15:48:47,662 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-05-09 15:48:47,663 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-05-09 15:48:47,663 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 15:48:47,663 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-05-09 15:48:47,663 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 15:48:47,663 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-05-09 15:48:47,663 - DEBUG - Set local path in self.paths["classifier"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 15:48:47,663 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-05-09 15:48:47,663 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:48:47,663 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-05-09 15:48:47,663 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 15:48:47,663 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 15:48:47,663 - DEBUG - Redirecting (loading from local path): classifier -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 15:48:47,663 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:48:47,745 - DEBUG - Loaded categorical encoding from /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:49:38,319 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-05-09 15:49:38,319 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-05-09 15:49:38,319 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 15:49:38,319 - DEBUG - Registered checkpoint load hook for load
+2025-05-09 15:49:38,379 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-05-09 15:49:38,379 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-05-09 15:49:38,379 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 15:49:38,379 - DEBUG - Registered checkpoint load hook for _recover
+2025-05-09 15:49:38,392 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-05-09 15:49:38,392 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 15:49:38,691 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 15:49:38,691 - DEBUG - Registered checkpoint load hook for _load
+2025-05-09 15:49:38,691 - DEBUG - Registered parameter transfer hook for _load
+2025-05-09 15:49:38,757 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 15:49:38,757 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-05-09 15:49:38,758 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-05-09 15:49:38,758 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-05-09 15:49:38,758 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 15:49:38,758 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-05-09 15:49:38,758 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 15:49:38,758 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-05-09 15:49:38,758 - DEBUG - Set local path in self.paths["classifier"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 15:49:38,758 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-05-09 15:49:38,758 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:49:38,758 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-05-09 15:49:38,758 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 15:49:38,758 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 15:49:38,758 - DEBUG - Redirecting (loading from local path): classifier -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 15:49:38,758 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:49:38,847 - DEBUG - Loaded categorical encoding from /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:50:49,639 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-05-09 15:50:49,639 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-05-09 15:50:49,640 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 15:50:49,640 - DEBUG - Registered checkpoint load hook for load
+2025-05-09 15:50:49,698 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-05-09 15:50:49,698 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-05-09 15:50:49,698 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 15:50:49,698 - DEBUG - Registered checkpoint load hook for _recover
+2025-05-09 15:50:49,712 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-05-09 15:50:49,712 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 15:50:50,035 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 15:50:50,035 - DEBUG - Registered checkpoint load hook for _load
+2025-05-09 15:50:50,035 - DEBUG - Registered parameter transfer hook for _load
+2025-05-09 15:50:50,102 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 15:50:50,102 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-05-09 15:50:50,102 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-05-09 15:50:50,102 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-05-09 15:50:50,102 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 15:50:50,102 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-05-09 15:50:50,102 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 15:50:50,102 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-05-09 15:50:50,103 - DEBUG - Set local path in self.paths["classifier"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 15:50:50,103 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-05-09 15:50:50,103 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:50:50,103 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-05-09 15:50:50,103 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 15:50:50,103 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 15:50:50,103 - DEBUG - Redirecting (loading from local path): classifier -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 15:50:50,103 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 15:50:50,197 - DEBUG - Loaded categorical encoding from /Users/tanishndhangar/Desktop/EDI_VOICE_BASED_EMAIL/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:31:36,525 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-05-09 17:31:36,526 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-05-09 17:31:36,526 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 17:31:36,526 - DEBUG - Registered checkpoint load hook for load
+2025-05-09 17:31:36,586 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-05-09 17:31:36,586 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-05-09 17:31:36,586 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 17:31:36,586 - DEBUG - Registered checkpoint load hook for _recover
+2025-05-09 17:31:36,601 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-05-09 17:31:36,601 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 17:31:36,946 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 17:31:36,946 - DEBUG - Registered checkpoint load hook for _load
+2025-05-09 17:31:36,946 - DEBUG - Registered parameter transfer hook for _load
+2025-05-09 17:31:37,020 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 17:31:37,020 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-05-09 17:31:37,020 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-05-09 17:31:37,020 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-05-09 17:31:37,021 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 17:31:37,021 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-05-09 17:31:37,021 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 17:31:37,021 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-05-09 17:31:37,021 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 17:31:37,021 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-05-09 17:31:37,021 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:31:37,021 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-05-09 17:31:37,021 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 17:31:37,021 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 17:31:37,021 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 17:31:37,021 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:31:37,117 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:32:29,796 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-05-09 17:32:29,797 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 17:32:30,144 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-05-09 17:32:30,144 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-05-09 17:32:30,144 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 17:32:30,144 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-05-09 17:32:30,144 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 17:32:30,144 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-05-09 17:32:30,145 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 17:32:30,145 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-05-09 17:32:30,145 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:32:30,145 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-05-09 17:32:30,145 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 17:32:30,145 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 17:32:30,145 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 17:32:30,145 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:32:30,241 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:35:56,834 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-05-09 17:35:56,835 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-05-09 17:35:56,835 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 17:35:56,835 - DEBUG - Registered checkpoint load hook for load
+2025-05-09 17:35:56,895 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+2025-05-09 17:35:56,895 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-05-09 17:35:56,895 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 17:35:56,895 - DEBUG - Registered checkpoint load hook for _recover
+2025-05-09 17:35:56,911 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-05-09 17:35:56,911 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 17:35:57,218 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 17:35:57,218 - DEBUG - Registered checkpoint load hook for _load
+2025-05-09 17:35:57,218 - DEBUG - Registered parameter transfer hook for _load
+2025-05-09 17:35:57,292 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 17:35:57,292 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-05-09 17:35:57,293 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-05-09 17:35:57,293 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-05-09 17:35:57,293 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 17:35:57,293 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-05-09 17:35:57,293 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 17:35:57,293 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-05-09 17:35:57,293 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 17:35:57,293 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-05-09 17:35:57,293 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:35:57,293 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-05-09 17:35:57,293 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 17:35:57,293 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 17:35:57,293 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 17:35:57,293 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:35:57,379 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:36:47,923 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-05-09 17:36:47,924 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 17:36:48,434 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-05-09 17:36:48,434 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-05-09 17:36:48,435 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 17:36:48,435 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-05-09 17:36:48,435 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 17:36:48,435 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-05-09 17:36:48,435 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 17:36:48,435 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-05-09 17:36:48,435 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:36:48,435 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-05-09 17:36:48,435 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 17:36:48,435 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 17:36:48,435 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 17:36:48,435 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:36:48,513 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:41:03,889 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-05-09 17:41:03,889 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-05-09 17:41:03,889 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 17:41:03,889 - DEBUG - Registered checkpoint load hook for load
+2025-05-09 17:41:03,949 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+2025-05-09 17:41:03,950 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-05-09 17:41:03,950 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 17:41:03,950 - DEBUG - Registered checkpoint load hook for _recover
+2025-05-09 17:41:03,964 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-05-09 17:41:03,964 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-05-09 17:41:04,256 - DEBUG - Registered checkpoint save hook for _save
+2025-05-09 17:41:04,257 - DEBUG - Registered checkpoint load hook for _load
+2025-05-09 17:41:04,257 - DEBUG - Registered parameter transfer hook for _load
+2025-05-09 17:41:04,330 - DEBUG - Registered checkpoint save hook for save
+2025-05-09 17:41:04,330 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-05-09 17:41:04,331 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-05-09 17:41:04,331 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-05-09 17:41:04,331 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 17:41:04,331 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-05-09 17:41:04,331 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 17:41:04,331 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-05-09 17:41:04,331 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 17:41:04,331 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-05-09 17:41:04,331 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:41:04,331 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-05-09 17:41:04,331 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-05-09 17:41:04,332 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-05-09 17:41:04,332 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-05-09 17:41:04,332 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:41:04,428 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Desktop/EDI_VOICE_BASED_EMAIL 2/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-05-09 17:45:33,005 - INFO - "GET /?state=YdFs6XbcRozl8sL13zUmqao8elV0tY&code=4/0Ab_5qll9CvDCIXvkMhirMtYETV22YYYfB2snHPV-zlrDjAHrfRdYKJsr5xOJFBKOGlkHqA&scope=https://www.googleapis.com/auth/gmail.readonly%20https://www.googleapis.com/auth/gmail.send HTTP/1.1" 200 65
+2025-05-09 17:45:33,306 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-11-27 12:22:30,921 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-11-27 12:22:30,921 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-11-27 12:22:30,921 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 12:22:30,921 - DEBUG - Registered checkpoint load hook for load
+2025-11-27 12:22:30,962 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-11-27 12:22:30,963 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-11-27 12:22:30,963 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 12:22:30,963 - DEBUG - Registered checkpoint load hook for _recover
+2025-11-27 12:22:30,972 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-11-27 12:22:30,973 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-11-27 12:22:31,281 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 12:22:31,281 - DEBUG - Registered checkpoint load hook for _load
+2025-11-27 12:22:31,281 - DEBUG - Registered parameter transfer hook for _load
+2025-11-27 12:22:31,365 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 12:22:31,366 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-11-27 12:22:31,366 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-11-27 12:22:31,366 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-11-27 12:22:31,366 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 12:22:31,366 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-11-27 12:22:31,366 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 12:22:31,366 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-11-27 12:22:31,366 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 12:22:31,366 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-11-27 12:22:31,367 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:22:31,367 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-11-27 12:22:31,367 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 12:22:31,367 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 12:22:31,367 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 12:22:31,367 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:22:31,467 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:33:14,589 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-11-27 12:33:14,589 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-11-27 12:33:14,589 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 12:33:14,589 - DEBUG - Registered checkpoint load hook for load
+2025-11-27 12:33:14,623 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-11-27 12:33:14,624 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-11-27 12:33:14,624 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 12:33:14,624 - DEBUG - Registered checkpoint load hook for _recover
+2025-11-27 12:33:14,632 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-11-27 12:33:14,632 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-11-27 12:33:14,942 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 12:33:14,942 - DEBUG - Registered checkpoint load hook for _load
+2025-11-27 12:33:14,942 - DEBUG - Registered parameter transfer hook for _load
+2025-11-27 12:33:15,023 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 12:33:15,023 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-11-27 12:33:15,024 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-11-27 12:33:15,024 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-11-27 12:33:15,024 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 12:33:15,024 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-11-27 12:33:15,024 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 12:33:15,024 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-11-27 12:33:15,024 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 12:33:15,024 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-11-27 12:33:15,024 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:33:15,024 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-11-27 12:33:15,024 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 12:33:15,024 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 12:33:15,024 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 12:33:15,024 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:33:15,127 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:36:29,089 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-11-27 12:36:29,089 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-11-27 12:36:29,090 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 12:36:29,090 - DEBUG - Registered checkpoint load hook for load
+2025-11-27 12:36:29,124 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-11-27 12:36:29,124 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-11-27 12:36:29,124 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 12:36:29,125 - DEBUG - Registered checkpoint load hook for _recover
+2025-11-27 12:36:29,133 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-11-27 12:36:29,133 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-11-27 12:36:29,800 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 12:36:29,800 - DEBUG - Registered checkpoint load hook for _load
+2025-11-27 12:36:29,800 - DEBUG - Registered parameter transfer hook for _load
+2025-11-27 12:36:29,875 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 12:36:29,875 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-11-27 12:36:29,875 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-11-27 12:36:29,875 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-11-27 12:36:29,875 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 12:36:29,876 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-11-27 12:36:29,876 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 12:36:29,876 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-11-27 12:36:29,876 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 12:36:29,876 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-11-27 12:36:29,876 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:36:29,876 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-11-27 12:36:29,876 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 12:36:29,876 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 12:36:29,876 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 12:36:29,876 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:36:29,973 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:50:28,575 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-11-27 12:50:28,575 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-11-27 12:50:28,575 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 12:50:28,576 - DEBUG - Registered checkpoint load hook for load
+2025-11-27 12:50:28,609 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+2025-11-27 12:50:28,609 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-11-27 12:50:28,610 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 12:50:28,610 - DEBUG - Registered checkpoint load hook for _recover
+2025-11-27 12:50:28,618 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-11-27 12:50:28,618 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-11-27 12:50:28,919 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 12:50:28,920 - DEBUG - Registered checkpoint load hook for _load
+2025-11-27 12:50:28,920 - DEBUG - Registered parameter transfer hook for _load
+2025-11-27 12:50:29,001 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 12:50:29,002 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-11-27 12:50:29,002 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-11-27 12:50:29,002 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-11-27 12:50:29,002 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 12:50:29,002 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-11-27 12:50:29,002 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 12:50:29,002 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-11-27 12:50:29,002 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 12:50:29,003 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-11-27 12:50:29,003 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:50:29,003 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-11-27 12:50:29,003 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 12:50:29,003 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 12:50:29,003 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 12:50:29,003 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:50:29,106 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 12:51:58,742 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-11-27 12:53:34,449 - INFO - Use pytorch device_name: mps
+2025-11-27 12:53:34,450 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-27 12:53:37,520 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-11-27 12:54:06,555 - INFO - Use pytorch device_name: mps
+2025-11-27 12:54:06,557 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-27 12:54:09,190 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-11-27 19:58:25,232 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-11-27 19:58:25,232 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-11-27 19:58:25,232 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 19:58:25,232 - DEBUG - Registered checkpoint load hook for load
+2025-11-27 19:58:25,269 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+2025-11-27 19:58:25,269 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-11-27 19:58:25,270 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 19:58:25,270 - DEBUG - Registered checkpoint load hook for _recover
+2025-11-27 19:58:25,279 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-11-27 19:58:25,279 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-11-27 19:58:25,596 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 19:58:25,596 - DEBUG - Registered checkpoint load hook for _load
+2025-11-27 19:58:25,596 - DEBUG - Registered parameter transfer hook for _load
+2025-11-27 19:58:25,682 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 19:58:25,682 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-11-27 19:58:25,682 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-11-27 19:58:25,683 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-11-27 19:58:25,683 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 19:58:25,683 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-11-27 19:58:25,683 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 19:58:25,683 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-11-27 19:58:25,683 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 19:58:25,683 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-11-27 19:58:25,683 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 19:58:25,683 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-11-27 19:58:25,683 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 19:58:25,683 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 19:58:25,683 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 19:58:25,683 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 19:58:25,788 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:05:55,532 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-11-27 20:05:55,532 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-11-27 20:05:55,533 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 20:05:55,533 - DEBUG - Registered checkpoint load hook for load
+2025-11-27 20:05:55,576 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+2025-11-27 20:05:55,576 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-11-27 20:05:55,576 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 20:05:55,576 - DEBUG - Registered checkpoint load hook for _recover
+2025-11-27 20:05:55,585 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-11-27 20:05:55,585 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-11-27 20:05:55,897 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 20:05:55,897 - DEBUG - Registered checkpoint load hook for _load
+2025-11-27 20:05:55,898 - DEBUG - Registered parameter transfer hook for _load
+2025-11-27 20:05:55,973 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 20:05:55,973 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-11-27 20:05:55,973 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-11-27 20:05:55,973 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-11-27 20:05:55,974 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 20:05:55,974 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-11-27 20:05:55,974 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 20:05:55,974 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-11-27 20:05:55,974 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 20:05:55,974 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-11-27 20:05:55,974 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:05:55,974 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-11-27 20:05:55,974 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 20:05:55,974 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 20:05:55,974 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 20:05:55,974 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:05:56,075 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:19:43,056 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-11-27 20:19:43,056 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-11-27 20:19:43,056 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 20:19:43,056 - DEBUG - Registered checkpoint load hook for load
+2025-11-27 20:19:43,091 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+2025-11-27 20:19:43,092 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-11-27 20:19:43,092 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 20:19:43,092 - DEBUG - Registered checkpoint load hook for _recover
+2025-11-27 20:19:43,100 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-11-27 20:19:43,100 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-11-27 20:19:43,415 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 20:19:43,416 - DEBUG - Registered checkpoint load hook for _load
+2025-11-27 20:19:43,416 - DEBUG - Registered parameter transfer hook for _load
+2025-11-27 20:19:43,496 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 20:19:43,496 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-11-27 20:19:43,496 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-11-27 20:19:43,496 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-11-27 20:19:43,496 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 20:19:43,497 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-11-27 20:19:43,497 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 20:19:43,497 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-11-27 20:19:43,497 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 20:19:43,497 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-11-27 20:19:43,497 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:19:43,497 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-11-27 20:19:43,497 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 20:19:43,497 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 20:19:43,497 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 20:19:43,497 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:19:43,601 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:26:59,289 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-11-27 20:26:59,289 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-11-27 20:26:59,289 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 20:26:59,289 - DEBUG - Registered checkpoint load hook for load
+2025-11-27 20:26:59,323 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+2025-11-27 20:26:59,324 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-11-27 20:26:59,324 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 20:26:59,324 - DEBUG - Registered checkpoint load hook for _recover
+2025-11-27 20:26:59,333 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-11-27 20:26:59,333 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-11-27 20:26:59,638 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 20:26:59,638 - DEBUG - Registered checkpoint load hook for _load
+2025-11-27 20:26:59,638 - DEBUG - Registered parameter transfer hook for _load
+2025-11-27 20:26:59,720 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 20:26:59,720 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-11-27 20:26:59,720 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-11-27 20:26:59,721 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-11-27 20:26:59,721 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 20:26:59,721 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-11-27 20:26:59,721 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 20:26:59,721 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-11-27 20:26:59,721 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 20:26:59,721 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-11-27 20:26:59,721 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:26:59,721 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-11-27 20:26:59,721 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 20:26:59,721 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 20:26:59,721 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 20:26:59,721 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:26:59,843 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:29:26,805 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-11-27 20:34:45,626 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-11-27 20:34:45,626 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-11-27 20:34:45,626 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 20:34:45,626 - DEBUG - Registered checkpoint load hook for load
+2025-11-27 20:34:45,661 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-11-27 20:34:45,661 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-11-27 20:34:45,662 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 20:34:45,662 - DEBUG - Registered checkpoint load hook for _recover
+2025-11-27 20:34:45,670 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-11-27 20:34:45,670 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-11-27 20:34:45,982 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 20:34:45,983 - DEBUG - Registered checkpoint load hook for _load
+2025-11-27 20:34:45,983 - DEBUG - Registered parameter transfer hook for _load
+2025-11-27 20:34:46,055 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 20:34:46,055 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-11-27 20:34:46,056 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-11-27 20:34:46,056 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-11-27 20:34:46,056 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 20:34:46,056 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-11-27 20:34:46,056 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 20:34:46,056 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-11-27 20:34:46,056 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 20:34:46,056 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-11-27 20:34:46,056 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:34:46,056 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-11-27 20:34:46,056 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 20:34:46,056 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 20:34:46,056 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 20:34:46,056 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:34:46,160 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:37:46,036 - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-11-27 20:37:46,037 - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-11-27 20:37:46,037 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 20:37:46,037 - DEBUG - Registered checkpoint load hook for load
+2025-11-27 20:37:46,072 - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-11-27 20:37:46,072 - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-11-27 20:37:46,072 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 20:37:46,072 - DEBUG - Registered checkpoint load hook for _recover
+2025-11-27 20:37:46,081 - INFO - Fetch hyperparams.yaml: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/hyperparams.yaml'
+2025-11-27 20:37:46,081 - INFO - Fetch custom.py: Fetching from HuggingFace Hub 'speechbrain/spkrec-ecapa-voxceleb' if not cached
+2025-11-27 20:37:46,399 - DEBUG - Registered checkpoint save hook for _save
+2025-11-27 20:37:46,400 - DEBUG - Registered checkpoint load hook for _load
+2025-11-27 20:37:46,400 - DEBUG - Registered parameter transfer hook for _load
+2025-11-27 20:37:46,473 - DEBUG - Registered checkpoint save hook for save
+2025-11-27 20:37:46,473 - DEBUG - Registered checkpoint load hook for load_if_possible
+2025-11-27 20:37:46,473 - DEBUG - Collecting files (or symlinks) for pretraining in pretrained_models/spkrec-ecapa-voxceleb.
+2025-11-27 20:37:46,474 - INFO - Fetch embedding_model.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt'
+2025-11-27 20:37:46,474 - DEBUG - Set local path in self.paths["embedding_model"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 20:37:46,474 - INFO - Fetch mean_var_norm_emb.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt'
+2025-11-27 20:37:46,474 - DEBUG - Set local path in self.paths["mean_var_norm_emb"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 20:37:46,474 - INFO - Fetch classifier.ckpt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt'
+2025-11-27 20:37:46,474 - DEBUG - Set local path in self.paths["classifier"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 20:37:46,474 - INFO - Fetch label_encoder.txt: Using symlink found at '/Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt'
+2025-11-27 20:37:46,474 - DEBUG - Set local path in self.paths["label_encoder"] = /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:37:46,474 - INFO - Loading pretrained files for: embedding_model, mean_var_norm_emb, classifier, label_encoder
+2025-11-27 20:37:46,474 - DEBUG - Redirecting (loading from local path): embedding_model -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/embedding_model.ckpt
+2025-11-27 20:37:46,474 - DEBUG - Redirecting (loading from local path): mean_var_norm_emb -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/mean_var_norm_emb.ckpt
+2025-11-27 20:37:46,474 - DEBUG - Redirecting (loading from local path): classifier -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/classifier.ckpt
+2025-11-27 20:37:46,474 - DEBUG - Redirecting (loading from local path): label_encoder -> /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:37:46,575 - DEBUG - Loaded categorical encoding from /Users/parichoudhary/Downloads/voice mail/pretrained_models/spkrec-ecapa-voxceleb/label_encoder.ckpt
+2025-11-27 20:38:36,184 - INFO - file_cache is only supported with oauth2client<4.0.0

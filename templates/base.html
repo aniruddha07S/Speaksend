@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Email System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <style>
+        .voice-active {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .error-message {
+            animation: fadeOut 5s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h1 class="text-2xl font-bold text-gray-800">Voice Email System</h1>
+                    <div class="flex items-center space-x-2">
+                        <div id="voice-indicator" class="w-4 h-4 rounded-full bg-gray-300"></div>
+                        <span id="connection-status" class="text-sm text-gray-600">Disconnected</span>
+                    </div>
+                </div>
+                
+                <div id="error-message" class="hidden mb-4 p-3 bg-red-100 text-red-700 rounded-lg error-message"></div>
+                
+                <div id="content" class="space-y-4">
+                    {% block content %}{% endblock %}
+                </div>
+                
+                <div id="status" class="mt-4 text-sm text-gray-600"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const socket = io();
+        const voiceIndicator = document.getElementById('voice-indicator');
+        const statusDiv = document.getElementById('status');
+        const errorDiv = document.getElementById('error-message');
+        const connectionStatus = document.getElementById('connection-status');
+        
+        function showError(message) {
+            errorDiv.textContent = message;
+            errorDiv.classList.remove('hidden');
+            setTimeout(() => {
+                errorDiv.classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Handle voice commands
+        socket.on('voice_command', (data) => {
+            console.log('Voice command:', data.command);
+            statusDiv.textContent = `Recognized: "${data.command}"`;
+        });
+        
+        // Handle state changes
+        socket.on('state_change', (data) => {
+            console.log('State change:', data);
+            // Handle state changes in child templates
+            if (typeof handleStateChange === 'function') {
+                handleStateChange(data);
+            }
+        });
+        
+        // Handle text-to-speech
+        socket.on('speak', (data) => {
+            console.log('Speaking:', data.text);
+            statusDiv.textContent = data.text;
+            
+            // Use browser's speech synthesis
+            const utterance = new SpeechSynthesisUtterance(data.text);
+            utterance.rate = 1.0;
+            utterance.pitch = 1.0;
+            window.speechSynthesis.speak(utterance);
+        });
+        
+        // Handle authentication failure
+        socket.on('auth_failed', () => {
+            showError('Voice authentication failed. Please try again.');
+        });
+        
+        // Update voice indicator and connection status
+        socket.on('connect', () => {
+            voiceIndicator.classList.add('bg-green-500', 'voice-active');
+            voiceIndicator.classList.remove('bg-gray-300');
+            connectionStatus.textContent = 'Connected';
+            connectionStatus.classList.remove('text-red-600');
+            connectionStatus.classList.add('text-green-600');
+        });
+        
+        socket.on('disconnect', () => {
+            voiceIndicator.classList.remove('bg-green-500', 'voice-active');
+            voiceIndicator.classList.add('bg-gray-300');
+            connectionStatus.textContent = 'Disconnected';
+            connectionStatus.classList.remove('text-green-600');
+            connectionStatus.classList.add('text-red-600');
+            showError('Connection lost. Please refresh the page.');
+        });
+        
+        socket.on('connect_error', (error) => {
+            showError('Connection error. Please check your internet connection.');
+            console.error('Connection error:', error);
+        });
+        
+        // Handle browser compatibility
+        if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+            showError('Your browser does not support speech recognition. Please use Chrome or Edge.');
+        }
+        
+        if (!('speechSynthesis' in window)) {
+            showError('Your browser does not support speech synthesis. Please use Chrome or Edge.');
+        }
+    </script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html> 
