@@ -1,6 +1,11 @@
-.env
-credentials.json
+venv/
 __pycache__/
-.idea/
-.vscode/
-*.pickle
+*.pyc
+token.pickle
+token.json
+credentials.json
+voice_auth/
+logs/
+*.pkl
+.env
+pretrained_models/

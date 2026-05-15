@@ -84,20 +84,21 @@ def get_recent_emails(service, max_results=10):
         print(f"Error getting recent emails: {e}")
         return []
 
-def get_most_recent_email(service=None):
-    """Get and format the most recent email"""
+def get_most_recent_email(service=None, offset=0):
+    """Get and format a recent email by index offset (0 = newest)."""
     if not service:
         service = get_gmail_service()
     
     try:
-        # Get only the most recent email
-        results = service.users().messages().list(userId='me', maxResults=1).execute()
+        safe_offset = max(0, int(offset))
+        # Fetch enough messages so we can select nth recent message.
+        results = service.users().messages().list(userId='me', maxResults=safe_offset + 1).execute()
         messages = results.get('messages', [])
         
-        if not messages:
+        if not messages or safe_offset >= len(messages):
             return None
             
-        email_content = get_email_content(service, messages[0]['id'])
+        email_content = get_email_content(service, messages[safe_offset]['id'])
         if email_content:
             formatted_email = (
                 f"From: {email_content['from']}\n"

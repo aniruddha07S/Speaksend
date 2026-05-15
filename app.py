@@ -3,11 +3,23 @@ import traceback
 import sys
 import subprocess
 import os
+import argparse
 from pathlib import Path
 import logging
 import time
 import multiprocessing as mp
 import queue
+import platform
+
+try:
+    import pyttsx3
+except Exception:
+    pyttsx3 = None
+
+try:
+    from speechbrain.inference import EncoderClassifier  # newer speechbrain
+except ImportError:
+    from speechbrain.pretrained import EncoderClassifier  # speechbrain 0.5.x
 
 from gmail_service import send_email_via_gmail, get_service
 from semantic_search import run_semantic_search, get_most_recent_email
@@ -17,6 +29,7 @@ class VoiceEmailSystem:
     def __init__(self):
         self.recognizer = sr.Recognizer()
         self.max_retries = 3
+        self.tts_engine = None
         
         # Enhanced microphone settings for better accuracy
         self.recognizer.dynamic_energy_threshold = True
@@ -31,6 +44,22 @@ class VoiceEmailSystem:
         self.microphone_index, self.microphone_name = self._resolve_microphone_source()
         print(f"[Audio] Using microphone: {self.microphone_name} "
               f"({'default' if self.microphone_index is None else self.microphone_index})")
+        self._init_tts()
+
+    def _init_tts(self):
+        """Initialize a cross-platform TTS engine when available."""
+        if platform.system() == "Darwin":
+            return
+        if pyttsx3 is None:
+            print("[TTS] pyttsx3 is not installed; voice output may be unavailable.")
+            return
+        try:
+            self.tts_engine = pyttsx3.init()
+            self.tts_engine.setProperty("rate", 170)
+            self.tts_engine.setProperty("volume", 1.0)
+        except Exception as exc:
+            self.tts_engine = None
+            print(f"[TTS] Failed to initialize pyttsx3: {exc}")
 
     def _resolve_microphone_source(self):
         """Pick the microphone device based on env hints or simple heuristics."""
@@ -113,10 +142,17 @@ class VoiceEmailSystem:
             return False
     
     def speak(self, text):
-        """Speak the given text using macOS say command with faster rate"""
+        """Speak text using macOS say or pyttsx3 fallback on other platforms."""
         try:
             print(f"[TTS] {text}")
-            subprocess.run(['say', '-r', str(self.speech_rate), text], check=True)
+            if platform.system() == "Darwin":
+                subprocess.run(['say', '-r', str(self.speech_rate), text], check=True)
+            elif self.tts_engine is not None:
+                self.tts_engine.say(text)
+                self.tts_engine.runAndWait()
+            else:
+                # Keep running even when no TTS backend is available.
+                print("[TTS] No available TTS backend on this platform.")
             time.sleep(0.3)
         except Exception as e:
             print(f"Error in speak function: {e}")
@@ -142,6 +178,8 @@ class VoiceEmailSystem:
 
     def recognize_speech(self, prompt=None, timeout=None, phrase_time_limit=None):
         """Enhanced speech recognition with improved accuracy and longer timeout"""
+        unknown_audio_reported = False
+        retry_prompt_spoken = False
         for attempt in range(self.max_retries):
             try:
                 with sr.Microphone(device_index=self.microphone_index) as source:
@@ -185,14 +223,17 @@ class VoiceEmailSystem:
             except sr.WaitTimeoutError:
                 print("[System] Listening timed out. Please try again.")
             except sr.UnknownValueError:
-                print("[System] Could not understand audio")
+                if not unknown_audio_reported:
+                    print("[System] Could not understand audio")
+                    unknown_audio_reported = True
             except sr.RequestError as e:
                 print(f"[System] Could not request results; {e}")
             except Exception as e:
                 print(f"[System] Error in speech recognition: {e}")
             
-            if attempt < self.max_retries - 1:
+            if attempt < self.max_retries - 1 and not retry_prompt_spoken:
                 self.speak("I didn't catch that. Please try again.")
+                retry_prompt_spoken = True
             
         return None
 
@@ -483,6 +524,7 @@ class VoiceEmailSystem:
         
         from voice_auth import VoiceAuthenticator
         authenticator = VoiceAuthenticator()
+        authenticator.set_speak_function(self.speak)
         
         if authenticator.enroll_user(username):
             return True
@@ -498,6 +540,7 @@ class VoiceEmailSystem:
         """Authenticate user with voice"""
         from voice_auth import VoiceAuthenticator
         authenticator = VoiceAuthenticator()
+        authenticator.set_speak_function(self.speak)
         
         # Check if profile exists
         profile_path = authenticator.voice_dir / f"{username}_profile.pkl"
@@ -579,7 +622,7 @@ class VoiceEmailSystem:
                 traceback.print_exc()
                 self.speak("An error occurred. Let's try again.")
 
-def main():
+def run_cli_mode():
     try:
         # Needed for macOS
         mp.set_start_method('spawn', force=True)
@@ -617,6 +660,40 @@ def main():
         if 'logging' in locals():
             logging.error(f"Fatal error: {e}", exc_info=True)
         sys.exit(1)
+
+def run_web_mode():
+    """Run frontend/web routes via the web app server."""
+    from web_app import app as web_flask_app, socketio
+
+    Path('logs').mkdir(exist_ok=True)
+    Path('voice_auth').mkdir(exist_ok=True)
+
+    logging.basicConfig(
+        filename='logs/web_app.log',
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+
+    print("\n🌐 Server starting...")
+    print("📱 Open your browser and go to: http://localhost:5001")
+    print("🔊 Make sure your microphone is connected and permissions are granted\n")
+
+    socketio.run(web_flask_app, debug=False, port=5001, use_reloader=False)
+
+def main():
+    parser = argparse.ArgumentParser(description="Voice Mail launcher")
+    parser.add_argument(
+        "--mode",
+        choices=["web", "cli"],
+        default="web",
+        help="Run web frontend or CLI mode (default: web)"
+    )
+    args = parser.parse_args()
+
+    if args.mode == "web":
+        run_web_mode()
+    else:
+        run_cli_mode()
 
 if __name__ == "__main__":
     main()

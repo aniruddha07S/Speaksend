@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Mail Assistant</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #0d1117;
+            --bg-soft: #161b22;
+            --card: #111827;
+            --text: #e6edf3;
+            --muted: #9aa4b2;
+            --line: #2b3440;
+            --brand: #10a37f;
+            --brand-2: #1f6feb;
+            --danger: #ef4444;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, Segoe UI, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+        .app {
+            display: grid;
+            grid-template-columns: 250px 1fr 360px;
+            height: 100vh;
+        }
+        .sidebar, .panel, .main {
+            border-right: 1px solid var(--line);
+        }
+        .sidebar {
+            background: #0b0f14;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+        }
+        .brand {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 4px 4px 10px;
+        }
+        .nav-btn {
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            border: 1px solid var(--line);
+            color: var(--text);
+            border-radius: 10px;
+            padding: 10px 12px;
+            cursor: pointer;
+        }
+        .nav-btn:hover { background: #141a22; }
+        .nav-btn.active { color: #f8fafc; font-weight: 600; }
+        .nav-btn.active.tab-assistant { border-color: #a855f7; background: rgba(168, 85, 247, 0.18); }
+        .nav-btn.active.tab-compose { border-color: #10a37f; background: rgba(16, 163, 127, 0.18); }
+        .nav-btn.active.tab-search { border-color: #1f6feb; background: rgba(31, 111, 235, 0.18); }
+        .nav-btn.active.tab-recent { border-color: #ef4444; background: rgba(239, 68, 68, 0.18); }
+        .toggle-btn-green {
+            border: 1px solid #0f8c6d !important;
+            background: #10a37f !important;
+            color: #f8fafc !important;
+            font-weight: 600;
+        }
+        .toggle-btn-green:hover {
+            background: #0f8c6d !important;
+        }
+        .helper-box {
+            margin-top: auto;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #11161f;
+            padding: 10px;
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            min-height: 0;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line);
+            padding: 10px 14px;
+            background: #0f141b;
+        }
+        .pill {
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            font-size: 12px;
+            padding: 4px 10px;
+            color: var(--muted);
+            background: #101722;
+        }
+        .voice-pill-on {
+            color: #d1fae5;
+            border-color: #0f8c6d;
+            background: rgba(16, 163, 127, 0.18);
+        }
+        .chat-wrap {
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            border-left: 2px solid #a855f7;
+            border-right: 2px solid #a855f7;
+            transition: border-color 180ms ease, background-color 180ms ease;
+        }
+        .chat-log {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: linear-gradient(180deg, #0f141b 0%, #111827 100%);
+            min-height: 0;
+        }
+        .result-board {
+            border-bottom: 1px solid var(--line);
+            background: rgba(15, 20, 27, 0.9);
+            max-height: 36vh;
+            overflow-y: auto;
+            padding: 10px 12px;
+            display: none !important;
+        }
+        .result-board.active { display: block; }
+        .mail-card {
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            background: #111827;
+        }
+        .mail-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+        .mail-subject {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .mail-body {
+            font-size: 13px;
+            color: #dbe3ee;
+            white-space: pre-wrap;
+            line-height: 1.4;
+        }
+        .mail-meta {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #2b3440;
+            font-size: 12px;
+            color: var(--muted);
+            white-space: pre-wrap;
+            line-height: 1.35;
+        }
+        .msg.mail .mail-card {
+            max-width: 88%;
+            margin-bottom: 0;
+        }
+        .msg.mail.user { justify-content: flex-end; }
+        .msg.mail.assistant { justify-content: flex-start; }
+        .gmail-card {
+            background: #ffffff;
+            color: #202124;
+            border: 1px solid #f1f3f4;
+            border-left: 4px solid #d93025;
+            box-shadow: 0 1px 3px rgba(60, 64, 67, 0.25);
+        }
+        .gmail-card .mail-head {
+            color: #5f6368;
+            font-size: 12px;
+        }
+        .gmail-card .mail-subject {
+            color: #202124;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+        .gmail-card .mail-body {
+            color: #3c4043;
+        }
+        .mail-body.clamped {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .expand-btn {
+            margin-top: 8px;
+            background: transparent;
+            border: 0;
+            color: #d93025;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 0;
+        }
+        .expand-btn:hover { text-decoration: underline; }
+        .main[data-mode="assistant"] .chat-wrap,
+        .main[data-mode="welcome"] .chat-wrap,
+        .main[data-mode="main_menu"] .chat-wrap,
+        .main[data-mode="auth"] .chat-wrap,
+        .main[data-mode="enroll"] .chat-wrap {
+            border-left-color: #a855f7;
+            border-right-color: #a855f7;
+            background: rgba(168, 85, 247, 0.08);
+        }
+        .main[data-mode="compose"] .chat-wrap {
+            border-left-color: #10a37f;
+            border-right-color: #10a37f;
+            background: rgba(16, 163, 127, 0.08);
+        }
+        .main[data-mode="search"] .chat-wrap {
+            border-left-color: #1f6feb;
+            border-right-color: #1f6feb;
+            background: rgba(31, 111, 235, 0.10);
+        }
+        .main[data-mode="recent"] .chat-wrap {
+            border-left-color: #ef4444;
+            border-right-color: #ef4444;
+            background: rgba(239, 68, 68, 0.08);
+        }
+        .msg { display: flex; }
+        .msg.user { justify-content: flex-end; }
+        .bubble {
+            max-width: 78%;
+            border-radius: 14px;
+            padding: 10px 12px;
+            line-height: 1.4;
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .msg.assistant .bubble {
+            background: #1f2937;
+            border: 1px solid #334155;
+        }
+        .msg.user .bubble {
+            background: var(--brand);
+            color: #f8fafc;
+            border: 1px solid #0f8c6d;
+        }
+        .main[data-mode="assistant"] .msg.assistant .bubble,
+        .main[data-mode="welcome"] .msg.assistant .bubble,
+        .main[data-mode="main_menu"] .msg.assistant .bubble,
+        .main[data-mode="auth"] .msg.assistant .bubble,
+        .main[data-mode="enroll"] .msg.assistant .bubble {
+            border-color: #a855f7;
+            background: rgba(168, 85, 247, 0.20);
+        }
+        .main[data-mode="assistant"] .msg.user .bubble,
+        .main[data-mode="welcome"] .msg.user .bubble,
+        .main[data-mode="main_menu"] .msg.user .bubble,
+        .main[data-mode="auth"] .msg.user .bubble,
+        .main[data-mode="enroll"] .msg.user .bubble {
+            border-color: #9333ea;
+            background: #a855f7;
+        }
+        .main[data-mode="compose"] .msg.assistant .bubble {
+            border-color: #10a37f;
+            background: rgba(16, 163, 127, 0.20);
+        }
+        .main[data-mode="compose"] .msg.user .bubble {
+            border-color: #0f8c6d;
+            background: #10a37f;
+        }
+        .main[data-mode="search"] .msg.assistant .bubble {
+            border-color: #1f6feb;
+            background: rgba(31, 111, 235, 0.22);
+        }
+        .main[data-mode="search"] .msg.user .bubble {
+            border-color: #1d4ed8;
+            background: #2563eb;
+        }
+        .main[data-mode="recent"] .msg.assistant .bubble {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.22);
+        }
+        .main[data-mode="recent"] .msg.user .bubble {
+            border-color: #dc2626;
+            background: #ef4444;
+        }
+        .composer {
+            border-top: 1px solid var(--line);
+            background: #0f141b;
+            padding: 12px;
+            display: flex;
+            gap: 8px;
+        }
+        .composer input {
+            flex: 1;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            background: #0b1220;
+            color: var(--text);
+            padding: 10px 12px;
+            outline: none;
+        }
+        .composer input:focus {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.2);
+        }
+        .composer button {
+            border: 0;
+            border-radius: 10px;
+            padding: 10px 14px;
+            background: var(--brand);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .panel {
+            background: #0f141b;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+        }
+        .card {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #111827;
+            padding: 12px;
+        }
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 14px;
+        }
+        .camera {
+            border-radius: 10px;
+            border: 1px solid #334155;
+            overflow: hidden;
+            background: #000;
+        }
+        .camera img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .hint {
+            margin: 0;
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.45;
+        }
+        .status-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            margin: 4px 0;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #6b7280;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        .dot.ok { background: #10b981; }
+        .dot.bad { background: var(--danger); }
+        .mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            background: #0b1220;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+        @media (max-width: 1200px) {
+            .app { grid-template-columns: 220px 1fr; }
+            .panel { display: none; }
+        }
+        @media (max-width: 900px) {
+            .app {
+                grid-template-columns: 1fr;
+                height: auto;
+                min-height: 100vh;
+            }
+            .sidebar {
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+                max-height: 38vh;
+            }
+            .main {
+                min-height: 62vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">Voice Mail</div>
+            <button id="tab-assistant" class="nav-btn tab-assistant active">Assistant Chat</button>
+            <button id="tab-compose" class="nav-btn tab-compose">Compose</button>
+            <button id="tab-search" class="nav-btn tab-search">Search</button>
+            <button id="tab-recent" class="nav-btn tab-recent">Recent</button>
+
+            <div class="helper-box">
+                <div><strong>Voice commands:</strong> compose, search, recent, exit</div>
+                <div style="margin-top:6px;"><strong>Gestures:</strong> thumbs up = send, palm = cancel</div>
+            </div>
+        </aside>
+
+        <main class="main" id="main-pane" data-mode="assistant">
+            <div class="topbar">
+                <div>Voice Auth + Gmail Assistant</div>
+                <div style="display:flex; gap:8px;">
+                    <span id="conn-pill" class="pill">Disconnected</span>
+                    <span id="state-pill" class="pill">State: welcome</span>
+                    <button id="voice-toggle-btn" class="pill" style="cursor:pointer;">Voice: ON</button>
+                </div>
+            </div>
+
+            <div class="chat-wrap">
+                <div id="result-board" class="result-board"></div>
+                <div id="chat-log" class="chat-log">
+                    <div class="msg assistant">
+                        <div class="bubble">Welcome to Voice Mail. Say your username to begin.</div>
+                    </div>
+                </div>
+                <div class="composer">
+                    <input id="manual-command-input" type="text" placeholder="Type command: compose / search / recent / confirm / cancel / exit">
+                    <button onclick="sendManualCommand()">Send</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="panel">
+            <div class="card">
+                <h3>Device Camera (OpenCV)</h3>
+                <div style="display:flex; gap:8px; margin-bottom:8px;">
+                    <button id="camera-toggle-btn" class="nav-btn toggle-btn-green" style="padding:6px 10px;">Turn Camera Off</button>
+                    <span id="camera-pill" class="pill">Camera: ON</span>
+                </div>
+                <div class="camera">
+                    <img id="opencv-stream" src="/video_feed" alt="OpenCV camera stream">
+                </div>
+                <p class="hint" style="margin-top:8px;">If blank, backend must expose <span class="mono">/video_feed</span>.</p>
+            </div>
+
+            <div class="card">
+                <h3>System Status</h3>
+                <div class="status-line"><span><span id="dot-socket" class="dot"></span>Socket</span><span id="socket-text">offline</span></div>
+                <div class="status-line"><span><span class="dot ok"></span>Mic</span><span>managed by backend</span></div>
+                <div class="status-line"><span><span class="dot ok"></span>Gesture</span><span>opencv + mediapipe</span></div>
+                <div class="status-line"><span><span class="dot ok"></span>Gmail</span><span>OAuth token required</span></div>
+            </div>
+
+            <div class="card">
+                <h3>Quick Instructions</h3>
+                <p class="hint">1) Say username -> <span class="mono">proceed</span></p>
+                <p class="hint">2) Speak verification phrase clearly</p>
+                <p class="hint">3) Use commands or type in chat</p>
+                <p class="hint">4) Confirm with voice or gesture</p>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        const socket = io();
+        const chatLog = document.getElementById("chat-log");
+        const statePill = document.getElementById("state-pill");
+        const connPill = document.getElementById("conn-pill");
+        const socketDot = document.getElementById("dot-socket");
+        const socketText = document.getElementById("socket-text");
+        const manualInput = document.getElementById("manual-command-input");
+        const mainPane = document.getElementById("main-pane");
+        const resultBoard = document.getElementById("result-board");
+        const voiceToggleBtn = document.getElementById("voice-toggle-btn");
+        const tabAssistant = document.getElementById("tab-assistant");
+        const tabCompose = document.getElementById("tab-compose");
+        const tabSearch = document.getElementById("tab-search");
+        const tabRecent = document.getElementById("tab-recent");
+        const cameraToggleBtn = document.getElementById("camera-toggle-btn");
+        const cameraPill = document.getElementById("camera-pill");
+        const opencvStream = document.getElementById("opencv-stream");
+        let cameraEnabled = true;
+        let currentState = "welcome";
+        let voiceEnabled = true;
+        let speechUnlocked = false;
+        const speechQueue = [];
+        let speakingNow = false;
+        let recentCardCounter = 0;
+
+        function unlockSpeech() {
+            if (speechUnlocked) return;
+            speechUnlocked = true;
+            if (!("speechSynthesis" in window)) {
+                appendChat("assistant", "Browser TTS unsupported. Use Chrome/Edge.");
+                return;
+            }
+            try {
+                const probe = new SpeechSynthesisUtterance("Voice enabled");
+                probe.volume = 0.01;
+                probe.rate = 1.0;
+                window.speechSynthesis.speak(probe);
+                window.speechSynthesis.cancel();
+            } catch (e) {
+                // Ignore unlock probe errors.
+            }
+        }
+
+        function dequeueSpeak() {
+            if (!voiceEnabled || !speechUnlocked || speakingNow) return;
+            if (!speechQueue.length) return;
+            if (!("speechSynthesis" in window)) return;
+            const text = speechQueue.shift();
+            if (!text) return;
+
+            speakingNow = true;
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 1.0;
+            utterance.pitch = 1.0;
+            utterance.onend = () => {
+                speakingNow = false;
+                dequeueSpeak();
+            };
+            utterance.onerror = () => {
+                speakingNow = false;
+                dequeueSpeak();
+            };
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function speakFrontend(text) {
+            const safe = String(text || "").trim();
+            if (!safe || !voiceEnabled) return;
+            speechQueue.push(safe);
+            dequeueSpeak();
+        }
+
+        function shouldSpeakMessage(text) {
+            const t = String(text || "").toLowerCase();
+            if (!t) return false;
+            // Speak only essential prompts/outcomes.
+            const include = [
+                "welcome to voice",
+                "please say your username",
+                "i heard the username",
+                "to confirm this username",
+                "let's verify your voice",
+                "voice authentication successful",
+                "voice authentication failed",
+                "let's compose your email",
+                "you can either show thumbs up",
+                "say 'confirm'",
+                "email sent successfully",
+                "sending email now",
+                "cancelling email",
+                "goodbye"
+            ];
+            return include.some((k) => t.includes(k));
+        }
+
+        function setActiveTab(tabName) {
+            [tabAssistant, tabCompose, tabSearch, tabRecent].forEach((el) => {
+                if (el) el.classList.remove("active");
+            });
+            const map = {
+                assistant: tabAssistant,
+                welcome: tabAssistant,
+                main_menu: tabAssistant,
+                auth: tabAssistant,
+                enroll: tabAssistant,
+                compose: tabCompose,
+                search: tabSearch,
+                recent: tabRecent
+            };
+            const tab = map[tabName] || tabAssistant;
+            if (tab) tab.classList.add("active");
+
+            const modeMap = {
+                compose: "compose",
+                search: "search",
+                recent: "recent"
+            };
+            mainPane.dataset.mode = modeMap[tabName] || "assistant";
+        }
+
+        function appendChat(role, text) {
+            const safeText = String(text || "").trim();
+            if (!safeText) return;
+            const row = document.createElement("div");
+            row.className = `msg ${role === "user" ? "user" : "assistant"}`;
+            const bubble = document.createElement("div");
+            bubble.className = "bubble";
+            bubble.textContent = safeText;
+            row.appendChild(bubble);
+            chatLog.appendChild(row);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        function appendMailCardToChat(role, cardHtml) {
+            const safeHtml = String(cardHtml || "").trim();
+            if (!safeHtml) return;
+            const row = document.createElement("div");
+            row.className = `msg mail ${role === "user" ? "user" : "assistant"}`;
+            row.innerHTML = safeHtml;
+            chatLog.appendChild(row);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        function bindExpandableCards() {
+            chatLog.querySelectorAll(".expand-btn").forEach((btn) => {
+                if (btn.dataset.bound === "1") return;
+                btn.dataset.bound = "1";
+                btn.addEventListener("click", () => {
+                    const targetId = btn.dataset.target;
+                    const bodyEl = document.getElementById(targetId);
+                    if (!bodyEl) return;
+                    const expanded = bodyEl.dataset.expanded === "1";
+                    if (expanded) {
+                        bodyEl.classList.add("clamped");
+                        bodyEl.dataset.expanded = "0";
+                        btn.textContent = "...";
+                    } else {
+                        bodyEl.classList.remove("clamped");
+                        bodyEl.dataset.expanded = "1";
+                        btn.textContent = "Show less";
+                    }
+                });
+            });
+        }
+
+        function escapeHtml(s) {
+            return String(s || "")
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;");
+        }
+
+        function showResultBoard() {
+            resultBoard.classList.remove("active");
+        }
+
+        function clearResultBoard() {
+            resultBoard.innerHTML = "";
+            resultBoard.classList.remove("active");
+        }
+
+        function renderMailCard({ title = "Email", from = "", subject = "", body = "", date = "", badge = "", meta = [] }) {
+            const metaLines = (Array.isArray(meta) ? meta : [])
+                .map((line) => String(line || "").trim())
+                .filter(Boolean);
+            return `
+                <div class="mail-card">
+                    <div class="mail-head">
+                        <span>${escapeHtml(title)}</span>
+                        <span>${escapeHtml(badge || date || "")}</span>
+                    </div>
+                    <div class="mail-subject">${escapeHtml(subject || "(No subject)")}</div>
+                    <div class="mail-head"><span>From: ${escapeHtml(from || "Unknown")}</span></div>
+                    <div class="mail-body">${escapeHtml(body || "")}</div>
+                    ${metaLines.length ? `<div class="mail-meta">${metaLines.map((line) => escapeHtml(line)).join("<br>")}</div>` : ""}
+                </div>
+            `;
+        }
+
+        function sendManualCommand() {
+            const value = (manualInput.value || "").trim();
+            if (!value) return;
+            unlockSpeech();
+            appendChat("user", value);
+            // Route typed text as a direct reply so compose/search prompts can consume it.
+            socket.emit("text_input", { text: value });
+            manualInput.value = "";
+        }
+
+        function sendCommand(command) {
+            unlockSpeech();
+            appendChat("user", command);
+            socket.emit("voice_command", { command });
+            if (command === "compose" || command === "search" || command === "recent") {
+                setActiveTab(command);
+            } else if (command === "exit") {
+                setActiveTab("assistant");
+            }
+        }
+
+        manualInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") sendManualCommand();
+        });
+
+        tabAssistant.addEventListener("click", () => setActiveTab("assistant"));
+        tabCompose.addEventListener("click", () => sendCommand("compose"));
+        tabSearch.addEventListener("click", () => sendCommand("search"));
+        tabRecent.addEventListener("click", () => sendCommand("recent"));
+        window.addEventListener("click", unlockSpeech, { once: true });
+        window.addEventListener("keydown", unlockSpeech, { once: true });
+
+        voiceToggleBtn.addEventListener("click", () => {
+            voiceEnabled = !voiceEnabled;
+            voiceToggleBtn.textContent = `Voice: ${voiceEnabled ? "ON" : "OFF"}`;
+            voiceToggleBtn.classList.toggle("voice-pill-on", voiceEnabled);
+            if (!voiceEnabled && "speechSynthesis" in window) {
+                speechQueue.length = 0;
+                window.speechSynthesis.cancel();
+                speakingNow = false;
+            } else if (voiceEnabled) {
+                unlockSpeech();
+                speakFrontend("Voice announcements enabled.");
+            }
+        });
+        voiceToggleBtn.classList.add("voice-pill-on");
+
+        socket.on("connect", () => {
+            connPill.textContent = "Connected";
+            socketDot.className = "dot ok";
+            socketText.textContent = "online";
+        });
+
+        socket.on("disconnect", () => {
+            connPill.textContent = "Disconnected";
+            socketDot.className = "dot bad";
+            socketText.textContent = "offline";
+        });
+
+        socket.on("speak", (data) => {
+            if (data && data.text) {
+                appendChat("assistant", data.text);
+                if (shouldSpeakMessage(data.text)) {
+                    speakFrontend(data.text);
+                }
+            }
+        });
+
+        socket.on("voice_command", (data) => {
+            if (data && data.command) {
+                appendChat("user", data.command);
+                if (data.command === "compose" || data.command === "search" || data.command === "recent") {
+                    setActiveTab(data.command);
+                } else if (data.command === "exit") {
+                    setActiveTab("assistant");
+                }
+            }
+        });
+
+        socket.on("heard_text", (data) => {
+            if (data && data.text) appendChat("user", data.text);
+        });
+
+        socket.on("state_change", (data) => {
+            if (!data || !data.state) return;
+            statePill.textContent = `State: ${data.state}`;
+            currentState = data.state;
+            setActiveTab(data.state);
+            if (["welcome", "auth", "enroll", "main_menu", "stopped"].includes(data.state)) {
+                clearResultBoard();
+            }
+        });
+
+        socket.on("error", (data) => {
+            if (data && data.message) appendChat("assistant", `Error: ${data.message}`);
+        });
+
+        socket.on("gesture", (data) => {
+            if (!data || !data.gesture) return;
+            const text = data.gesture === "send" ? "Gesture detected: thumbs up (send)" : "Gesture detected: palm (cancel)";
+            appendChat("assistant", text);
+
+            // Auto-apply gesture only during compose flow.
+            if (currentState === "compose") {
+                const mappedCommand = data.gesture === "send" ? "confirm" : "cancel";
+                sendCommand(mappedCommand);
+            }
+        });
+
+        function refreshCameraUi() {
+            cameraPill.textContent = `Camera: ${cameraEnabled ? "ON" : "OFF"}`;
+            cameraToggleBtn.textContent = cameraEnabled ? "Turn Camera Off" : "Turn Camera On";
+        }
+
+        function restartCameraStream() {
+            if (!opencvStream) return;
+            // Bust browser cache and force a fresh stream request.
+            opencvStream.src = `/video_feed?t=${Date.now()}`;
+        }
+
+        cameraToggleBtn.addEventListener("click", () => {
+            const wasEnabled = cameraEnabled;
+            cameraEnabled = !cameraEnabled;
+            socket.emit("set_camera_enabled", { enabled: cameraEnabled });
+            refreshCameraUi();
+            if (cameraEnabled && !wasEnabled) {
+                restartCameraStream();
+            }
+        });
+
+        socket.on("camera_state", (data) => {
+            if (!data || typeof data.enabled !== "boolean") return;
+            const wasEnabled = cameraEnabled;
+            cameraEnabled = data.enabled;
+            refreshCameraUi();
+            if (cameraEnabled && !wasEnabled) {
+                restartCameraStream();
+            }
+        });
+
+        socket.on("compose_card", (data) => {
+            const status = String((data || {}).status || "draft");
+            const badgeMap = {
+                draft: "Draft",
+                sent: "Sent",
+                cancelled: "Cancelled",
+                timeout: "Timed Out",
+                error: "Error"
+            };
+            let html = renderMailCard({
+                title: "Compose",
+                from: "You",
+                subject: data?.subject || "",
+                body: data?.body || "",
+                badge: badgeMap[status] || status,
+                meta: [
+                    data?.to ? `To: ${data.to}` : "",
+                    data?.error ? `Error: ${data.error}` : ""
+                ]
+            });
+            appendMailCardToChat("assistant", html);
+        });
+
+        socket.on("search_cards", (data) => {
+            const emails = data?.emails || [];
+            if (!emails.length) {
+                appendMailCardToChat("assistant", `<div class="mail-card"><div class="mail-subject">No matching emails found.</div></div>`);
+                return;
+            }
+            const searchCardsHtml = emails.map((e, i) =>
+                renderMailCard({
+                    title: `Search Result ${i + 1}`,
+                    from: e.from,
+                    subject: e.subject,
+                    body: e.body,
+                    date: e.date,
+                    badge: `${Math.round((e.similarity || 0) * 100)}% match`
+                })
+            ).join("");
+            appendMailCardToChat("assistant", searchCardsHtml);
+        });
+
+        socket.on("recent_card", (data) => {
+            const e = data?.email;
+            if (!e) {
+                appendMailCardToChat("assistant", `<div class="mail-card"><div class="mail-subject">No recent email available.</div></div>`);
+                return;
+            }
+            recentCardCounter += 1;
+            const bodyId = `recent-body-${Date.now()}-${recentCardCounter}`;
+            const recentCardHtml = `
+                <div class="mail-card gmail-card">
+                    <div class="mail-head">
+                        <span>Recent ${recentCardCounter}</span>
+                        <span>${escapeHtml(e.date || "")}</span>
+                    </div>
+                    <div class="mail-subject">${escapeHtml(e.subject || "(No subject)")}</div>
+                    <div class="mail-head"><span>From: ${escapeHtml(e.from || "Unknown")}</span></div>
+                    <div id="${bodyId}" class="mail-body clamped" data-expanded="0">${escapeHtml(e.body || "")}</div>
+                    <button class="expand-btn" data-target="${bodyId}">...</button>
+                </div>
+            `;
+            appendMailCardToChat("assistant", recentCardHtml);
+            bindExpandableCards();
+        });
+    </script>
+</body>
+</html>

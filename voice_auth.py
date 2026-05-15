@@ -9,7 +9,10 @@ import traceback
 import subprocess
 import torch
 import torchaudio
-from speechbrain.inference import EncoderClassifier
+try:
+    from speechbrain.inference import EncoderClassifier
+except ImportError:
+    from speechbrain.pretrained import EncoderClassifier
 from scipy.spatial.distance import cosine
 warnings.filterwarnings('ignore')
 
@@ -27,7 +30,7 @@ class VoiceAuthenticator:
         print("\n📥 Loading pre-trained speaker recognition model...")
         self.speaker_model = EncoderClassifier.from_hparams(
             source="speechbrain/spkrec-ecapa-voxceleb",
-            savedir="pretrained_models/spkrec-ecapa-voxceleb"
+            overrides=None
         )
         print("✅ Model loaded successfully!")
         

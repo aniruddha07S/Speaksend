@@ -83,7 +83,13 @@ def init_mediapipe():
     try:
         import mediapipe as mp
         print("✅ MediaPipe imported successfully")
-        
+
+        if not hasattr(mp, "solutions"):
+            raise RuntimeError(
+                "Installed mediapipe package does not expose mp.solutions. "
+                "Install a compatible version: python -m pip install \"mediapipe==0.10.13\""
+            )
+
         mp_hands = mp.solutions.hands
         hands = mp_hands.Hands(
             static_image_mode=False,
@@ -126,6 +132,7 @@ def list_available_cameras():
 
 def gesture_recognition_process(gesture_queue, stop_event):
     """Process for running gesture recognition"""
+    cap = None
     try:
         print("\n🎥 Starting gesture recognition process...")
         
@@ -134,6 +141,12 @@ def gesture_recognition_process(gesture_queue, stop_event):
         
         # Initialize MediaPipe first
         try:
+            if not hasattr(mp, "solutions"):
+                raise RuntimeError(
+                    "module 'mediapipe' has no attribute 'solutions'. "
+                    "Please install a compatible version: python -m pip install \"mediapipe==0.10.13\""
+                )
+
             mp_hands = mp.solutions.hands
             hands = mp_hands.Hands(
                 static_image_mode=False,
