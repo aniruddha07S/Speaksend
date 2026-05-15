@@ -115,4 +115,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Google Cloud Platform for Gmail API
 - MediaPipe for gesture recognition
 - librosa for audio processing
-- OpenCV for computer vision 
+- OpenCV for computer vision # Speaksend
