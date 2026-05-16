@@ -1,4 +1,4 @@
-# Voice-Based Email System
+# SpeakSend:Voice-Based Email System
 
 A sophisticated email system that combines voice authentication, speech recognition, and gesture control to provide a hands-free email experience.
 
